@@ -1,7 +1,5 @@
 'use client';
 
-import { generateChallengeQuestion } from '@/ai/flows/generate-challenge-question-flow';
-import type { GenerateChallengeQuestionOutput } from '@/ai/flows/generate-challenge-question-flow';
 import { useFormState, useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,31 +11,8 @@ import { getAllQuestions } from '@/lib/data';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Bot, Loader2, TableIcon } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { generateQuestionAction } from './actions';
 
-type FormState = {
-  data: GenerateChallengeQuestionOutput | null;
-  error: string | null;
-};
-
-async function generateQuestionAction(
-  prevState: FormState,
-  formData: FormData
-): Promise<FormState> {
-  'use server';
-  const prompt = formData.get('prompt') as string;
-  const difficultyLevel = formData.get('difficultyLevel') as 'InputToOutput' | 'OutputToInput';
-
-  if (!prompt || !difficultyLevel) {
-    return { data: null, error: 'Prompt and difficulty level are required.' };
-  }
-
-  try {
-    const result = await generateChallengeQuestion({ prompt, difficultyLevel });
-    return { data: result, error: null };
-  } catch (e: any) {
-    return { data: null, error: e.message || 'An unknown error occurred.' };
-  }
-}
 
 function SubmitButton() {
   const { pending } = useFormStatus();
