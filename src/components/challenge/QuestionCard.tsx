@@ -43,7 +43,7 @@ export function QuestionCard({ question, category, userAnswer, onAnswerChange }:
               <Label htmlFor="answer-input" className="font-semibold">Your Answer (Guess the Output):</Label>
               <Input
                 id="answer-input"
-                value={userAnswer}
+                value={userAnswer || ''}
                 onChange={(e) => onAnswerChange(e.target.value)}
                 placeholder="Type your answer here"
                 autoComplete="off"
@@ -65,7 +65,7 @@ export function QuestionCard({ question, category, userAnswer, onAnswerChange }:
               <Label htmlFor="answer-input" className="font-semibold">Your Answer (Guess the Input):</Label>
               <Input
                 id="answer-input"
-                value={userAnswer}
+                value={userAnswer || ''}
                 onChange={(e) => onAnswerChange(e.target.value)}
                 placeholder="Type your answer here"
                 autoComplete="off"
