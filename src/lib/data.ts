@@ -1,7 +1,7 @@
 import type { Question, QuestionCategory } from './types';
 
 const questions: Record<QuestionCategory, Question[]> = {
-  'first-year': [
+  'input-to-output': [
     {
       id: 1,
       description: 'What is the output of this code that prints squares of numbers?',
@@ -59,7 +59,7 @@ const questions: Record<QuestionCategory, Question[]> = {
       answer: '4 3 2 1',
     }
   ],
-  'senior-year': [
+  'output-to-input': [
     {
       id: 1,
       description: 'Find the input `n` that produces the sum of the first `n` natural numbers.',

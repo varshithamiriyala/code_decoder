@@ -25,7 +25,7 @@ async function generateQuestionAction(
 ): Promise<FormState> {
   'use server';
   const prompt = formData.get('prompt') as string;
-  const difficultyLevel = formData.get('difficultyLevel') as 'FirstYear' | 'SeniorYear';
+  const difficultyLevel = formData.get('difficultyLevel') as 'InputToOutput' | 'OutputToInput';
 
   if (!prompt || !difficultyLevel) {
     return { data: null, error: 'Prompt and difficulty level are required.' };
@@ -76,13 +76,13 @@ export default function AdminPage() {
               </div>
               <div>
                 <Label>Difficulty Level</Label>
-                <Select name="difficultyLevel" defaultValue="FirstYear" required>
+                <Select name="difficultyLevel" defaultValue="InputToOutput" required>
                   <SelectTrigger>
                     <SelectValue placeholder="Select difficulty" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="FirstYear">First Year</SelectItem>
-                    <SelectItem value="SeniorYear">2nd / 3rd / 4th Year</SelectItem>
+                    <SelectItem value="InputToOutput">Input to Output</SelectItem>
+                    <SelectItem value="OutputToInput">Output to Input</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

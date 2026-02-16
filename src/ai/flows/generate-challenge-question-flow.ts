@@ -15,16 +15,16 @@ import { z } from 'genkit';
 // Input Schema
 const GenerateChallengeQuestionInputSchema = z.object({
   prompt: z.string().describe('A natural language description of the desired coding challenge question.'),
-  difficultyLevel: z.enum(['FirstYear', 'SeniorYear']).describe('The difficulty level for the question. "FirstYear" requires guessing output from input/code. "SeniorYear" requires guessing input from code/output.'),
+  difficultyLevel: z.enum(['InputToOutput', 'OutputToInput']).describe('The difficulty level for the question. "InputToOutput" requires guessing output from input/code. "OutputToInput" requires guessing input from code/output.'),
 });
 export type GenerateChallengeQuestionInput = z.infer<typeof GenerateChallengeQuestionInputSchema>;
 
 // Output Schema
 const GenerateChallengeQuestionOutputSchema = z.object({
   questionDescription: z.string().describe('A brief description of the generated question based on the prompt.'),
-  input: z.string().describe('The input value for the code snippet. For "FirstYear" challenges, this is shown to the user. For "SeniorYear" challenges, this is the hidden correct answer.'),
+  input: z.string().describe('The input value for the code snippet. For "InputToOutput" challenges, this is shown to the user. For "OutputToInput" challenges, this is the hidden correct answer.'),
   code: z.string().describe('The code snippet for the challenge.'),
-  expectedOutput: z.string().describe('The expected output when the code snippet is run with the provided input. For "FirstYear" challenges, this is the hidden correct answer. For "SeniorYear" challenges, this is shown to the user.'),
+  expectedOutput: z.string().describe('The expected output when the code snippet is run with the provided input. For "InputToOutput" challenges, this is the hidden correct answer. For "OutputToInput" challenges, this is shown to the user.'),
   suggestions: z.string().optional().describe('Optional suggestions if the prompt was unclear or the generated question needs refinement.'),
 });
 export type GenerateChallengeQuestionOutput = z.infer<typeof GenerateChallengeQuestionOutputSchema>;
@@ -48,11 +48,11 @@ Difficulty Level: {{{difficultyLevel}}}
 User Prompt: "{{{prompt}}}"
 
 When generating the question, consider the following for the specified difficulty level:
-- If Difficulty Level is 'FirstYear':
+- If Difficulty Level is 'InputToOutput':
   - The challenge shows an 'Input' and a 'Code Snippet'.
   - The user must guess the 'Expected Output'.
   - Therefore, you should provide the 'input', 'code', and the 'expectedOutput' that the user needs to guess.
-- If Difficulty Level is 'SeniorYear':
+- If Difficulty Level is 'OutputToInput':
   - The challenge shows an 'Expected Output' and a 'Code Snippet' (with a placeholder for input).
   - The user must guess the 'Input' that produces the 'Expected Output'.
   - Therefore, you should provide the 'input' (which will be the correct answer the user must provide), the 'code' (which should contain a variable or placeholder for the input), and the 'expectedOutput'.
@@ -63,7 +63,7 @@ If the user's prompt is ambiguous, unclear, or you cannot generate a suitable qu
 
 Provide a brief 'questionDescription' summarizing the challenge you created.
 
-Example for 'FirstYear':
+Example for 'InputToOutput':
 {
   "questionDescription": "A simple multiplication problem.",
   "input": "5",
@@ -72,7 +72,7 @@ Example for 'FirstYear':
   "suggestions": ""
 }
 
-Example for 'SeniorYear':
+Example for 'OutputToInput':
 {
   "questionDescription": "Find the input that squares to the given output.",
   "input": "5",

@@ -29,7 +29,7 @@ export function QuestionCard({ question, category, userAnswer, onAnswerChange }:
         <CardDescription>{question.description}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        {category === 'first-year' ? (
+        {category === 'input-to-output' ? (
           <>
             <div>
               <Label className="font-semibold">Input:</Label>

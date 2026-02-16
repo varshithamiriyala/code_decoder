@@ -7,11 +7,11 @@ import { CheckCircle2, Clock, FileQuestion, Star } from "lucide-react";
 export default function InstructionsPage({ params }: { params: { category: string } }) {
   const { category } = params;
 
-  if (category !== 'first-year' && category !== 'senior-year') {
+  if (category !== 'input-to-output' && category !== 'output-to-input') {
     notFound();
   }
 
-  const categoryTitle = category === 'first-year' ? 'First Year' : '2nd / 3rd / 4th Year';
+  const categoryTitle = category === 'input-to-output' ? 'Input to Output' : 'Output to Input';
 
   const instructions = [
     { icon: Clock, text: "Total time is 10 minutes." },

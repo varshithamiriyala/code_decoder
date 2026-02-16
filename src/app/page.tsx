@@ -34,10 +34,10 @@ export default function Home() {
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
           <Button asChild size="lg" className="w-full transition-transform hover:scale-105">
-            <Link href="/instructions/first-year">First Year</Link>
+            <Link href="/instructions/input-to-output">Input to Output</Link>
           </Button>
           <Button asChild size="lg" variant="secondary" className="w-full transition-transform hover:scale-105">
-            <Link href="/instructions/senior-year">2nd / 3rd / 4th Year</Link>
+            <Link href="/instructions/output-to-input">Output to Input</Link>
           </Button>
         </CardContent>
       </Card>

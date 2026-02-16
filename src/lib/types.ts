@@ -1,4 +1,4 @@
-export type QuestionCategory = 'first-year' | 'senior-year';
+export type QuestionCategory = 'input-to-output' | 'output-to-input';
 
 export type Question = {
   id: number;
