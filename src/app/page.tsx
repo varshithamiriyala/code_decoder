@@ -26,10 +26,10 @@ export default function Home() {
             <Logo size="lg" />
           </div>
           <CardTitle className="text-4xl font-extrabold tracking-tight lg:text-5xl">
-            Code Duel
+            Code Decoder
           </CardTitle>
           <CardDescription className="text-lg text-muted-foreground">
-            The ultimate coding challenge. Choose your path.
+            The ultimate code decoding challenge. Choose your path.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">

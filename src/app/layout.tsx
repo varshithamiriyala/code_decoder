@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Code Duel',
-  description: 'A competitive coding challenge platform.',
+  title: 'Code Decoder',
+  description: 'The ultimate code decoding challenge.',
 };
 
 export default function RootLayout({
