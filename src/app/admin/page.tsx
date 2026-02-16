@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
@@ -31,7 +32,7 @@ const CodeBlock = ({ code }: { code: string }) => (
 );
 
 export default function AdminPage() {
-  const [state, formAction] = useFormState(generateQuestionAction, { data: null, error: null });
+  const [state, formAction] = useActionState(generateQuestionAction, { data: null, error: null });
   const allQuestions = getAllQuestions();
 
   return (
