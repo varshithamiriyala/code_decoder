@@ -23,7 +23,7 @@ export function ChallengeClient({ questions, category }: { questions: Question[]
     let score = 0;
     let correctAnswersCount = 0;
     questions.forEach((q, index) => {
-      if (q.answer.trim().toLowerCase() === userAnswers[index].trim().toLowerCase()) {
+      if (q.answer.trim().toLowerCase() === (userAnswers[index] || '').trim().toLowerCase()) {
         score += 10;
         correctAnswersCount++;
       }
