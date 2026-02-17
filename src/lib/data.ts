@@ -32,10 +32,10 @@ const questions: Record<QuestionCategory, Question[]> = {
     },
     {
       id: 5,
-      description: 'What pattern does this nested loop print?',
-      input: '3',
-      code: 'n = int(input())\nfor i in range(n):\n    for j in range(i+1):\n        print("*", end="")\n    print()',
-      answer: '*\n**\n***',
+      description: 'What is the sum of the digits for the given number?',
+      input: '987',
+      code: 'n = input()\nsum_digits = 0\nfor digit in n:\n    sum_digits += int(digit)\nprint(sum_digits)',
+      answer: '24',
     },
     {
       id: 6,
