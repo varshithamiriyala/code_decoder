@@ -1,12 +1,12 @@
-# 🔐 Password Puzzle Game
+# 🧩 Code Decoder Game
 
-A simple interactive game where users solve puzzles to guess the correct password.
+A fun game where players decode hidden codes or messages using logic and clues.
 
 ## 🚀 Features
-- Puzzle-based password guessing  
-- User input validation  
-- Hints for better gameplay  
-- Simple and engaging UI  
+- Code guessing gameplay  
+- Hints and clues system  
+- Input validation  
+- Interactive UI  
 
 ## 🛠️ Tech Used
 - HTML  
@@ -22,6 +22,6 @@ Open `index.html` in a browser.
 - script.js  
 
 ## 🔧 Future Improvements
-- Add multiple levels  
-- Timer and scoring system  
-- Sound effects and animations  
+- Multiple difficulty levels  
+- Timer and score tracking  
+- Advanced puzzles  
